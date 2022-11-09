@@ -1,4 +1,5 @@
 import "./App.css";
+import logo from "./assets/images/logovinted.svg";
 //
 //import des packages
 import axios from "axios";

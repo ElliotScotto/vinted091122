@@ -1,3 +1,47 @@
 .header {
-  height: 60px;
+  height: 55px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.header img {
+  height: 40px;
+  width: 75px;
+  margin-right: 30px;
+}
+.searchbar {
+  min-width: 200px;
+  width: 400px;
+  color: lightgray;
+  height: 40px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.buttons-header {
+  display: flex;
+  margin-left: auto;
+  margin-right: 10px;
+  gap: 10px;
+  height: 30px;
+}
+
+.sell-Btn {
+  border: none;
+  color: white;
+  background-color: #2db0ba;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-left: 10px;
+  margin-left: 30px;
+}
+.connection-Btn,
+.inscription-Btn {
+  color: #2db0ba;
+  border: solid 1px #2db0ba;
+  border-radius: 5px;
+
+  background-color: white;
 }
