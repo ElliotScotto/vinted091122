@@ -11,9 +11,22 @@ const Home = ({ data }) => {
       <br />
       <h1>Ceci est la page Home</h1>
       <br />
-      <div>
+      <div className="big-container-offer">
         {data.offers.map((elem, index) => {
-          return <p key={index}>{elem._id}</p>;
+          //   console.log(<div key={index}>{elem.product_image.secure_url}</div>);
+          return (
+            <div className="container-offer">
+              <img
+                className="offer-img"
+                src={elem.product_image.url}
+                key={index}
+              />
+              {/* <p className="offer-username">{elem.owner.account.username}</p> */}
+              <p className="offer-price">{elem.product_price} €</p>
+              <p className="offer-size">{elem.product_details[1].TAILLE}</p>
+              <p className="offer-brand">{elem.product_details[0].MARQUE}</p>
+            </div>
+          );
         })}
       </div>
 
