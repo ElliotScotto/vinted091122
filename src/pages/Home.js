@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import data from "../assets/data.json";
 
-const Home = () => {
+const Home = ({ data }) => {
   console.log(
     data.offers.map((elem) => {
       return <p>{elem}</p>;
@@ -11,7 +10,7 @@ const Home = () => {
     <div>
       <h1>Ceci est la page Home</h1>
       <br />
-      {/* <Link to={`/offer/${data}`}>Accéder à l'offre</Link> */}
+      <Link to={`/offer`}>Accéder aux offres</Link>
     </div>
   );
 };

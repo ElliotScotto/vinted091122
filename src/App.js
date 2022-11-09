@@ -21,8 +21,10 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/");
-        // console.log(response.data);
+        const response = await axios.get(
+          "https://lereacteur-vinted-api.herokuapp.com/offers"
+        );
+        console.log("ici =>", response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -44,7 +46,7 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home data={data} />} />
         <Route path="/offer/:id" element={<Offer />} />
       </Routes>
     </Router>

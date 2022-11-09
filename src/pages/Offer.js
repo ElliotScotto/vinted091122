@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import data from "../assets/data.json";
 
-const Offer = (offers) => {
-  const { id } = useParams();
+const Offer = () => {
+  const params = useParams();
+  console.log(params);
   return (
     <div>
       <h2>Ceci est la page Offer</h2>
-      <span>The offer id is:{offers}</span>
+      <span>The offer id is:{params.id}</span>
       <br />
       <Link to="/">Back Home</Link>
     </div>
