@@ -1,5 +1,5 @@
 import "./App.css";
-import logo from "./assets/images/logovinted.svg";
+
 //
 //import des packages
 import axios from "axios";
@@ -17,6 +17,7 @@ import Header from "./components/Header";
 
 function App() {
   const [data, setData] = useState();
+  // const [offers, setOffers] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
