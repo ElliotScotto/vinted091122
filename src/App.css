@@ -1,6 +1,10 @@
+/*
+/* HEADER */
 header {
   height: 55px;
   border-bottom: solid 1px lightgray;
+  display: flex;
+  align-items: center;
 }
 .header {
   width: 100vw;
@@ -16,6 +20,10 @@ header {
   margin-right: 30px;
   margin-left: 30px;
 }
+.logo-style {
+  cursor: pointer;
+}
+
 .searchbar {
   min-width: 200px;
   width: 400px;
@@ -25,30 +33,46 @@ header {
   border-radius: 5px;
   padding-left: 10px;
 }
+
+/*
+/* USER HEADER BUTTON */
 .buttons-header {
   display: flex;
   margin-left: auto;
-  margin-right: 10px;
+  margin-right: 40px;
   gap: 10px;
+  align-items: center;
+}
+.btn-with-link {
+  text-decoration: none;
+}
+.connexion-Btn,
+.inscription-Btn,
+.disconnexion-Btn {
+  padding: 15px;
   height: 30px;
-}
-
-.sell-Btn {
-  border: none;
-  color: white;
-  background-color: #2db0ba;
-  border-radius: 5px;
-  padding-left: 10px;
-  margin-left: 30px;
-  margin-right: auto;
-}
-.connection-Btn,
-.inscription-Btn {
   color: #2db0ba;
   border: solid 1px #2db0ba;
   border-radius: 5px;
   background-color: white;
+  display: flex;
+  align-items: center;
 }
+.sell-Btn {
+  height: 30px;
+  border: none;
+  color: white;
+  background-color: #2db0ba;
+  border-radius: 5px;
+  padding: 15px;
+  margin-left: 30px;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+/*
+/* OFFRES*/
 .big-container-offer {
   width: 1300px;
   display: flex;
@@ -56,15 +80,40 @@ header {
   gap: 15px;
   justify-content: center;
   margin: auto;
+  /* border: solid 1px black; */
+}
+.container-offer {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  /* border: solid 1px lightgray; */
+  margin-bottom: 10px;
+}
+/* .offer-img :hover {
+  transition-duration: 1s;
+  box-shadow: 2px 5px 2px lightgray;
+} */
+.top-offer {
+  display: flex;
+  /* border: solid 1px black; */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.bottom-offer {
+  padding: 5px;
+}
+.avatar-img {
+  object-fit: cover;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }
 .offer-img {
   width: 240px;
   height: 360px;
   object-fit: cover;
-}
-.container-offer {
-  display: flex;
-  flex-direction: column;
 }
 .offer-price {
   font-size: 20px;
@@ -72,11 +121,141 @@ header {
 }
 .offer-size {
   color: lightgray;
-  font-size: 16px;
+  font-size: 14px;
   padding: 2px;
 }
 .offer-brand {
   color: lightgray;
-  font-size: 16px;
+  font-size: 14px;
   padding: 2px;
+}
+
+/*
+/* SIGNUP */
+.big-container-offer {
+  width: 1300px;
+  border: solid 1px pink;
+}
+.container-form {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #2db0ba;
+  border-radius: 5px;
+  margin-top: 50px;
+  align-items: center;
+}
+.title-form {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.inscription-form {
+  margin: 0 auto;
+  display: block;
+}
+.inscription-form input {
+  width: 270px;
+}
+.inscription-form ::placeholder {
+  font-size: 12px;
+}
+.user-name,
+.user-mail,
+.user-password,
+.user-newsletter {
+  margin: 20px auto;
+  font-size: 12px;
+}
+
+.inscription-form .input {
+  display: block;
+}
+
+.conditions-form {
+  margin: 0 auto;
+  width: 270px;
+  font-size: 12px;
+  color: grey;
+}
+.signup-Btn {
+  border: none;
+  display: flex;
+  margin: 0 auto;
+  width: 270px;
+  padding: 15px;
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+  background-color: #2db0ba;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+.already-signed {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #2db0ba;
+  font-size: 14px;
+}
+.link-inscription {
+  text-decoration: none;
+}
+/*
+/* LOADING ANIMATION */
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+.loading-style {
+  height: 10vh;
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30vh auto;
+  padding: 5px;
+}
+.loading-title {
+  display: flex;
+  font-family: "VT323", monospace, arial, serif;
+  font-size: 26px;
+  color: #2db0ba;
+}
+.loading-bowl {
+  display: flex;
+  gap: 10px;
+}
+
+.bowl1,
+.bowl2,
+.bowl3 {
+  display: flex;
+  background-color: #2db0ba;
+  width: 10px;
+  height: 10px;
+}
+.bowl1 {
+  animation: bounce 1s infinite;
+}
+.bowl2 {
+  animation: bounce 1s infinite;
+  animation-delay: 0.1s;
+}
+.bowl3 {
+  animation: bounce 1s infinite;
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
