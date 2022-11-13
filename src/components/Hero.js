@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HeroVintedImage from "../assets/images/herovinted.jpg";
 const Hero = () => {
   return (
@@ -14,6 +15,14 @@ const Hero = () => {
             alt="hero_torn_effect"
             class="home-hero-torn-effect"
           />
+        </div>
+        <div className="StartToSales">
+          <div>Prêts à faire du tri dans vos placards ?</div>
+          <div>
+            <Link to="/sales" className="btn-with-link">
+              <button className="StartToSales-Btn">Commencer à vendre</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -141,22 +141,57 @@ header {
 }
 /*
 /* HERO */
-.hero {
-}
 .hero-vinted-image {
   position: relative;
 }
-.home-hero-torn-effect {
-  position: absolute;
-  bottom: 0;
-}
-/*
-/* PAGE HOME */
 .heroVintedImg {
   height: 450px;
   width: 100%;
   object-fit: cover;
 }
+.torn-image {
+  display: flex;
+  justify-content: right;
+}
+.home-hero-torn-effect {
+  position: absolute;
+  width: calc((100% / 3) * 2);
+  bottom: 0;
+}
+.StartToSales {
+  position: absolute;
+  top: 20%;
+  left: 17%;
+  background-color: white;
+  border-radius: 3px;
+  /* border: solid 1px black; */
+  padding: 20px;
+  height: 230px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+}
+.StartToSales {
+  justify-content: center;
+  gap: 40px;
+  font-size: 36px;
+  font-weight: 350;
+}
+.StartToSales-Btn {
+  height: 50px;
+  border: none;
+  color: white;
+  background-color: #2db0ba;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+/*
+/* PAGE HOME */
+
 .home-big-container-offer {
   width: 1300px;
   display: flex;
