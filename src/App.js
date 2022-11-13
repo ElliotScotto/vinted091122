@@ -19,9 +19,7 @@ import Header from "./components/Header";
 
 function App() {
   const [data, setData] = useState();
-  // State dans lequel je stocke le token. Sa valeur de base sera :
-  // - Je je trouve un cookie token, ce cookie
-  // - Sinon, nulll
+  const [search, setSearch] = useState("");
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
 
   // Cette fonction permet de stocker le token dans le state et dans les cookies OU supprimer le token dans le state et dans les cookies
@@ -41,7 +39,12 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Header handleToken={handleToken} userToken={userToken} />
+              <Header
+                search={search}
+                setSearch={setSearch}
+                handleToken={handleToken}
+                userToken={userToken}
+              />
             </li>
           </ul>
         </nav>

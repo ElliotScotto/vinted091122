@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Loading from "../components/Loading";
 
 const Offer = () => {
   const [data, setData] = useState();
@@ -24,11 +24,7 @@ const Offer = () => {
   }, [id]);
 
   return isLoading ? (
-    <>
-      <Link to="/">Back Home</Link>
-      <br />
-      <span>En cours de chargement...</span>
-    </>
+    <Loading />
   ) : (
     <div className="offer-container">
       <div className="offer-block-left">
@@ -38,6 +34,7 @@ const Offer = () => {
           alt=""
         />
       </div>
+
       <div className="offer-block-right">
         <p className="offer-price">{data.product_price} €</p>
         <div>
@@ -60,6 +57,32 @@ const Offer = () => {
               </div>
             );
           })}
+          <div className="offer-block-BOTTOM">
+            <div className="offer-name">{data.product_name}</div>
+            <div className="offer-description">{data.product_description} </div>
+
+            <div className="offer-user-details">
+              {data.owner.account.avatar && (
+                <div>
+                  <img
+                    className="offer-avatar-img"
+                    src={data.owner.account.avatar.secure_url}
+                    alt="avatar_user"
+                  />
+                </div>
+              )}
+              <div>
+                <p className="offer-username">{data.owner.account.username}</p>
+              </div>
+            </div>
+            <div className="button-buy">
+              <input
+                type="submit"
+                className="button-submit-buy"
+                value="Acheter"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

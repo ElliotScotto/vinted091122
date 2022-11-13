@@ -84,6 +84,7 @@ header {
   flex: 3;
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 .PriceFilter-AToZ {
   padding-left: 5px;
@@ -198,23 +199,17 @@ header {
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  margin: auto;
-  /* border: solid 1px black; */
+  margin: 30px auto;
 }
 .home-container-offer {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  /* border: solid 1px lightgray; */
   margin-bottom: 10px;
 }
-/* .offer-img :hover {
-  transition-duration: 1s;
-  box-shadow: 2px 5px 2px lightgray;
-} */
+
 .home-top-offer {
   display: flex;
-  /* border: solid 1px black; */
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
@@ -228,6 +223,10 @@ header {
   height: 30px;
   width: 30px;
   border-radius: 50%;
+}
+.home-offer-username {
+  color: lightgray;
+  font-size: 14px;
 }
 .home-offers-img {
   width: 240px;
@@ -251,15 +250,18 @@ header {
 /*
 /* PAGE OFFER */
 .offer-container {
-  border: solid 2px pink;
+  padding-top: 30px;
   background-color: #ebedee;
   display: flex;
   justify-content: center;
   gap: 200px;
+  /* height: 82vh; */
+  height: 83%;
 }
 .offer-img-offer {
   height: 600px;
   width: 450px;
+  border-radius: 3px;
 }
 .offer-block-left {
 }
@@ -267,9 +269,9 @@ header {
   box-sizing: border-box;
   height: 600px;
   width: 400px;
-  border: solid 1px black;
+  border-radius: 3px;
   background-color: white;
-  padding: 30px;
+  padding: 40px;
 }
 .offer-price {
   font-size: 24px;
@@ -285,15 +287,64 @@ header {
   margin-left: 70px;
 }
 .container-offer-name-details {
-  border: solid 1px blue;
+  /* border: solid 1px blue; */
 }
 .container-offer-value-details {
-  border: solid 1px green;
+  /* border: solid 1px green; */
+}
+.offer-block-BOTTOM {
+  border-top: #ebedee solid 1px;
+  margin-top: 50px;
+  padding-top: 50px;
+}
+.offer-name {
+  font-weight: 500;
+  font-size: 18px;
+}
+.offer-description {
+  margin-top: 15px;
+  color: #bcbcbb;
+  font-size: 18px;
+  line-height: 20px;
+}
+.offer-user-details {
+  margin-top: 15px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 20px;
+}
+.offer-avatar-img {
+  object-fit: cover;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.offer-username {
+  color: black;
+  font-size: 18px;
+}
+.button-buy {
+  margin-top: 50px;
+}
+.button-submit-buy {
+  border: none;
+  display: flex;
+  margin: 0 auto;
+  width: 300px;
+  padding: 5px;
+  height: 35px;
+  color: white;
+  border-radius: 5px;
+  background-color: #2db0ba;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }
 
 /*
-/* <
-PAGE SIGNUP & LOGIN */
+/* PAGE SIGNUP & LOGIN */
 .big-container-offer {
   width: 1300px;
   /* border: solid 1px pink; */

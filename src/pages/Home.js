@@ -32,7 +32,6 @@ const Home = () => {
       <Hero />
       <div className="home-big-container-offer">
         {data.offers.map((elem, index) => {
-          //   console.log(<div key={index}>{elem.product_image.secure_url}</div>);
           return (
             elem.owner && (
               <div

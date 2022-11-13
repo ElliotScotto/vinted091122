@@ -13,7 +13,7 @@ const Hero = () => {
           <img
             src="https://lereacteur-vinted.netlify.app/static/media/tear.884480420945b3afd77b44a6c5f98567.svg"
             alt="hero_torn_effect"
-            class="home-hero-torn-effect"
+            className="home-hero-torn-effect"
           />
         </div>
         <div className="StartToSales">

@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import logo from "../assets/images/logovinted.svg";
 import magnifyingGlassForSearch from "../assets/images/magnifyingGlassForSearch.svg";
 import Filter from "./Filter";
-const Header = ({ handleToken, userToken }) => {
+//
+//
+const Header = ({ search, setSearch, userToken, handleToken }) => {
   return (
     <header>
       <div className="header">
@@ -25,6 +27,10 @@ const Header = ({ handleToken, userToken }) => {
                 className="searchbar"
                 type="text"
                 placeholder="Rechercher des articles"
+                value={search}
+                onChange={(event) => {
+                  setSearch(event.target.value);
+                }}
               />
             </div>
           </div>
@@ -32,8 +38,8 @@ const Header = ({ handleToken, userToken }) => {
             <Filter />
           </div>
         </div>
-        {/* Si le tokken existe, on affiche le bouton "deconnexion, sinon "s'inscrire" et se "connecter" */}
         <div className="buttons-header">
+          {/* Si le tokken existe, on affiche le bouton "deconnexion, sinon "s'inscrire" et se "connecter" */}
           {userToken ? (
             <Link to="/" className="btn-with-link">
               <button
