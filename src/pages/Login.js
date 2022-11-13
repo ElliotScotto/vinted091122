@@ -4,60 +4,76 @@ import { useNavigate } from "react-router-dom";
 //import packages
 import axios from "axios";
 //import Components
-import Loading from "../components/Loading";
+// import Loading from "../components/Loading";
 
 //
 const Login = ({ handleToken }) => {
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
   const navigate = useNavigate();
 
-  const fetchToken = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
-      const response = await axios.post("https://localhost:3001/login");
-      // console.log("ici =>", response.data);
-      setData(response.data);
-      setIsLoading(false);
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      console.log(
+        "REPONSE DU SERVEUR pour la page LOGIN ici =>",
+        response.data
+      );
+      handleToken(response.data.token);
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
   };
-  fetchToken();
 
-  return isLoading ? (
-    <Loading />
-  ) : (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
+  return (
+    <div className="container-form">
+      <form
+        className="inscription-form"
+        onSubmit={handleSubmit}
         // Je fais une requête vers le back
-
         // Le back me renvoie un token
         // const token = "1234567890";
-        handleToken(token);
         // À la fin de cete procédure je suis redirigé vers Home
-        navigate("/");
-      }}
-    >
-      <input
-        type="text"
-        value={email}
-        onChange={(event) => {
-          setEmail(event.target.value);
-        }}
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(event) => {
-          setPassword(event.target.value);
-        }}
-      />
-      <input type="submit" />
-    </form>
+      >
+        <br />
+        <br />
+        <span className="title-form">Se connecter</span>
+        <div className="user-mail">
+          <input
+            type="email"
+            placeholder="email"
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+            x
+          />
+        </div>
+        <div className="user-password">
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+          />
+        </div>
+
+        <input className="login-Btn" type="submit" value="Connexion" />
+        <br />
+        <br />
+      </form>
+    </div>
   );
 };
 

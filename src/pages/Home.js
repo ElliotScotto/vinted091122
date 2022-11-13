@@ -13,7 +13,7 @@ const Home = () => {
         const response = await axios.get(
           "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
-        console.log("ici =>", response.data);
+        // console.log("REPONSE DU SERVEUR pour la page HOME ici ", response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -31,45 +31,46 @@ const Home = () => {
       <br />
       <br />
       <br />
-      <div className="big-container-offer">
+      <div className="home-big-container-offer">
         {data.offers.map((elem, index) => {
           //   console.log(<div key={index}>{elem.product_image.secure_url}</div>);
           return (
             elem.owner && (
               <div
-                className="container-offer"
+                key={index}
+                className="home-container-offer"
                 onClick={() => {
                   return <Link to={`/offer/${elem.owner._id}`} />;
                 }}
               >
-                <div className="top-offer">
+                <div className="home-top-offer">
                   {elem.owner.account.avatar && (
                     <img
-                      className="avatar-img"
+                      className="home-avatar-img"
                       src={elem.owner.account.avatar.secure_url}
                       alt="avatar_user"
                     />
                   )}
-                  <p className="offer-username">
+                  <p className="home-offer-username">
                     {elem.owner.account.username}
                   </p>
                 </div>
                 <Link to={`/offer/${elem._id}`}>
                   <img
-                    className="offer-img"
+                    className="home-offers-img"
                     src={elem.product_image.url}
                     key={index}
                     alt="offerimg"
                   />
                 </Link>
-                <div className="bottom-offer">
-                  <p className="offer-price">{elem.product_price} €</p>
+                <div className="home-bottom-offer">
+                  <p className="home-offer-price">{elem.product_price} €</p>
                   {elem.owner.account.avatar && (
-                    <p className="offer-size">
+                    <p className="home-offer-size">
                       {elem.product_details[1].TAILLE}
                     </p>
                   )}
-                  <p className="offer-brand">
+                  <p className="home-offer-brand">
                     {elem.product_details[0].MARQUE}
                   </p>
                 </div>

@@ -8,14 +8,14 @@ import axios from "axios";
 //import components
 // import Loading from "../components/Loading";
 
-const Signup = ({ handleTocken }) => {
+const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const navigate = useNavigate();
-  //
-  // const [isLoading, setIsLoading] = useState(true);
+
+  // const [isLoading, setIsLoading] = useState(false);
   // const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
@@ -31,9 +31,13 @@ const Signup = ({ handleTocken }) => {
           newsletter: newsletter,
         }
       );
-      console.log("REPONSE DU SERVEUR ICI =>", response.data);
-      // setIsLoading(false);
-      handleTocken(response.data.token);
+      console.log(
+        "REPONSE DU SERVEUR pour la page SIGNUP ICI =>",
+        response.data
+      );
+      // setIsLoading(true);
+      handleToken(response.data.token);
+      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
@@ -42,13 +46,13 @@ const Signup = ({ handleTocken }) => {
   return (
     <div className="container-form">
       <form className="inscription-form" onSubmit={handleSubmit}>
+        <br />
+        <br />
         <span className="title-form">S'inscrire</span>
         <div className="user-name">
           <input
             name="text"
             type="text"
-            // state={name}
-            // setState={setName}
             placeholder="Nom d'utilisateur"
             value={username}
             onChange={(event) => {
@@ -60,8 +64,6 @@ const Signup = ({ handleTocken }) => {
           <input
             name="email"
             type="email"
-            // state={email}
-            // setState={setEmail}
             placeholder="E-mail"
             value={email}
             onChange={(event) => {
@@ -72,8 +74,6 @@ const Signup = ({ handleTocken }) => {
         <div className="user-password">
           <input
             type="password"
-            // state={password}
-            // setState={setPassword}
             placeholder="Mot de passe"
             value={password}
             onChange={(event) => {
@@ -82,29 +82,35 @@ const Signup = ({ handleTocken }) => {
           />
         </div>
         <div className="user-newsletter">
-          <input
-            type="checkbox"
-            checked={newsletter}
-            onChange={() => {
-              setNewsletter(!newsletter);
-            }}
-          />
-          {/* S'inscrire à notre newsletter */}
+          <div>
+            <input
+              type="checkbox"
+              checked={newsletter}
+              onChange={() => {
+                setNewsletter(!newsletter);
+              }}
+            />
+          </div>
+          <div>S'inscrire à notre newsletter</div>
+        </div>
+
+        <p className="conditions-form">
+          En m'inscrivant je confirme avoir lu et accepté les Termes &
+          Conditions et Politique de Confidentialité de Vinted. Je confirme
+          avoir au moins 18 ans.
+        </p>
+        <br />
+        <div className="button-submit-form">
+          <input type="submit" className="signup-Btn" value="S'inscrire" />
         </div>
       </form>
-
-      <p className="conditions-form">
-        En m'inscrivant je confirme avoir lu et accepté les Termes & Conditions
-        et Politique de Confidentialité de Vinted. Je confirme avoir au moins 18
-        ans.
-      </p>
-      <br />
-      <input type="submit" className="signup-Btn" value="S'inscrire" />
       <Link to="/login" className="link-inscription">
         <div className="already-signed">
           Tu as déjà un compte ? Connecte-toi
         </div>
       </Link>
+      <br />
+      <br />
     </div>
   );
 };
