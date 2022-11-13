@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 /*
 /* MAIN */
 .main-container {
   height: 100vh;
+  font-family: Roboto;
+  text-rendering: optimizeLegibility;
 }
 /*
 /* HEADER */
@@ -12,6 +15,7 @@ header {
   height: 120px;
   display: flex;
   align-items: center;
+  /* border: solid 2px #2db0ba; */
 }
 .header {
   width: 100vw;
@@ -22,23 +26,83 @@ header {
 }
 
 .logo-style {
-  height: 40px;
-  width: 100px;
+  height: 45px;
+  width: 120px;
   cursor: pointer;
 }
 
-.searchbar {
-  min-width: 200px;
-  width: 400px;
-  color: lightgray;
-  height: 40px;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
-  padding-left: 10px;
-}
-
 /*
-/* USER HEADER BUTTON */
+/* HEADER SEARCH */
+.searchbar-and-filter {
+  margin-left: 10px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.searchbar-style {
+  background-color: #f5f6f7;
+  border-radius: 5px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: #cbcccd;
+}
+.block-left-searchImage {
+  flex: calc(5%);
+  height: 20px;
+  width: 20px;
+  padding: 5px 0px 5px 5px;
+}
+.glassIcon {
+  width: 75%;
+  height: auto;
+  filter: opacity(50%);
+  image-rendering: smooth;
+}
+.block-right-searchbar {
+  flex: calc(95%);
+}
+.searchbar {
+  border: none;
+  height: 35px;
+  background-color: #f5f6f7;
+  padding-left: 10px;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: Roboto;
+  text-rendering: optimizeLegibility;
+}
+.header-filter {
+  /* border: solid 1px blue; */
+}
+/*
+/* FILTER */
+.filter-offers {
+  height: 40px;
+  flex: 3;
+  display: flex;
+  align-items: center;
+}
+.PriceFilter-AToZ {
+  padding-left: 5px;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  border: solid 1px goldenrod;
+  align-items: center;
+}
+.PriceFilter-Reduce {
+  padding-left: 5px;
+  height: 100%;
+  flex: 2;
+  display: flex;
+  border: solid 1px green;
+  align-items: center;
+}
+/*
+/* HEADER USER BUTTON */
 .buttons-header {
   display: flex;
   margin-left: auto;
@@ -75,9 +139,24 @@ header {
   align-items: center;
   cursor: pointer;
 }
-
+/*
+/* HERO */
+.hero {
+}
+.hero-vinted-image {
+  position: relative;
+}
+.home-hero-torn-effect {
+  position: absolute;
+  bottom: 0;
+}
 /*
 /* PAGE HOME */
+.heroVintedImg {
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+}
 .home-big-container-offer {
   width: 1300px;
   display: flex;

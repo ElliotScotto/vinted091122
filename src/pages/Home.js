@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 
+import Hero from "../components/Hero";
+
 const Home = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -27,10 +29,7 @@ const Home = () => {
     <Loading />
   ) : (
     <div>
-      <br />
-      <br />
-      <br />
-      <br />
+      <Hero />
       <div className="home-big-container-offer">
         {data.offers.map((elem, index) => {
           //   console.log(<div key={index}>{elem.product_image.secure_url}</div>);

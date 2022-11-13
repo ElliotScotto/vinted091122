@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logovinted.svg";
+import magnifyingGlassForSearch from "../assets/images/magnifyingGlassForSearch.svg";
+import Filter from "./Filter";
 const Header = ({ handleToken, userToken }) => {
   return (
     <header>
@@ -9,12 +11,26 @@ const Header = ({ handleToken, userToken }) => {
             <img src={logo} alt="vintedlogo" />
           </div>
         </Link>
-        <div className="searchbar-style">
-          <input
-            className="searchbar"
-            type="text"
-            placeholder="Rechercher des articles"
-          />
+        <div className="searchbar-and-filter">
+          <div className="searchbar-style">
+            <div className="block-left-searchImage">
+              <img
+                className="glassIcon"
+                src={magnifyingGlassForSearch}
+                alt="search_icon"
+              />
+            </div>
+            <div className="block-right-searchbar">
+              <input
+                className="searchbar"
+                type="text"
+                placeholder="Rechercher des articles"
+              />
+            </div>
+          </div>
+          <div className="header-filter">
+            <Filter />
+          </div>
         </div>
         {/* Si le tokken existe, on affiche le bouton "deconnexion, sinon "s'inscrire" et se "connecter" */}
         <div className="buttons-header">
