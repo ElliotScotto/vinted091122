@@ -77,7 +77,7 @@ const Header = ({
               </Link>
             </>
           )}
-          <Link to="/sales" className="btn-with-link">
+          <Link to="/offer/publish" className="btn-with-link">
             <button className="sell-Btn">Vends tes articles</button>
           </Link>
         </div>

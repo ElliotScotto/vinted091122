@@ -15,7 +15,7 @@ const Home = ({ search }) => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
         );
-        // console.log("REPONSE DU SERVEUR pour la page HOME ici ", response.data);
+        console.log("REPONSE DU SERVEUR pour la page HOME ici ", response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {

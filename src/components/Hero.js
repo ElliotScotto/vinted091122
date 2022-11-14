@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import HeroVintedImage from "../assets/images/herovinted.jpg";
+
+//
 const Hero = () => {
   return (
     <div className="hero">
@@ -19,7 +21,7 @@ const Hero = () => {
         <div className="StartToSales">
           <div>Prêts à faire du tri dans vos placards ?</div>
           <div>
-            <Link to="/sales" className="btn-with-link">
+            <Link to="/offer/publish" className="btn-with-link">
               <button className="StartToSales-Btn">Commencer à vendre</button>
             </Link>
           </div>

@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Sales from "./pages/Sales";
+import Publish from "./pages/Publish";
 
 //import des components
 import Header from "./components/Header";
@@ -64,7 +64,12 @@ function App() {
             element={<Signup handleToken={handleToken} />}
           />
           <Route path="/login" element={<Login handleToken={handleToken} />} />
-          <Route path="/sales" element={<Sales handleToken={handleToken} />} />
+          <Route
+            path="/offer/publish"
+            element={
+              <Publish handleToken={handleToken} userToken={userToken} />
+            }
+          />
         </Routes>
       </div>
     </Router>

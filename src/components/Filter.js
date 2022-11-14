@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+//
 
+//
 const Filter = ({
   search,
   setSearch,
@@ -10,7 +12,10 @@ const Filter = ({
   setPriceDesc,
 }) => {
   const [data, setData] = useState();
-  // const newTabfiltered = [];
+  // const newTabfiltered = []
+  //
+
+  //
   useEffect(() => {
     const fetchData = async (event) => {
       event.preventDefault();
@@ -18,10 +23,10 @@ const Filter = ({
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${search}`
         );
-        console.log(
-          "REPONSE DU SERVEUR pour la page HOME with Filter ici ",
-          response.data
-        );
+        // console.log(
+        //   "REPONSE DU SERVEUR pour la page HOME with Filter ici ",
+        //   response.data
+        // );
         setData(response.data);
         // setIsLoading(false);
       } catch (error) {
@@ -30,6 +35,8 @@ const Filter = ({
     };
     fetchData();
   }, [search]);
+  //
+
   return (
     <div className="filter-offers">
       <div className="PriceFilter-AToZ">
