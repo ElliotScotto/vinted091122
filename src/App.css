@@ -70,11 +70,12 @@ header {
   background-color: #f5f6f7;
   padding-left: 10px;
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 5px;
   font-family: Roboto;
   text-rendering: optimizeLegibility;
 }
+
 .header-filter {
   /* border: solid 1px blue; */
 }
@@ -134,10 +135,8 @@ header {
   height: 30px;
   color: white;
   border: none;
-
   background-color: #2db0ba;
   border-radius: 5px;
-
   margin-left: 30px;
   margin-right: auto;
   display: flex;

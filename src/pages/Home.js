@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 
 import Hero from "../components/Hero";
 
-const Home = () => {
+const Home = ({ search }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -13,7 +13,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
         );
         // console.log("REPONSE DU SERVEUR pour la page HOME ici ", response.data);
         setData(response.data);
@@ -23,7 +23,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [search]);
 
   return isLoading ? (
     <Loading />
