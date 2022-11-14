@@ -7,7 +7,7 @@ const Hero = () => {
         <img
           className="heroVintedImg"
           src={HeroVintedImage}
-          alt="image-hero-vinted-home"
+          alt="hero-vinted-home"
         />
         <div className="torn-image">
           <img

@@ -140,6 +140,7 @@ header {
   align-items: center;
   cursor: pointer;
 }
+
 /*
 /* HERO */
 .hero-vinted-image {
@@ -162,7 +163,7 @@ header {
 .StartToSales {
   position: absolute;
   top: 20%;
-  left: 17%;
+  left: 14%;
   background-color: white;
   border-radius: 3px;
   /* border: solid 1px black; */
@@ -190,9 +191,9 @@ header {
   cursor: pointer;
   font-size: 16px;
 }
+
 /*
 /* PAGE HOME */
-
 .home-big-container-offer {
   width: 1300px;
   display: flex;
@@ -448,22 +449,26 @@ header {
 }
 .bowl1,
 .bowl2,
-.bowl3 {
+.bowl3,
+.bowl4,
+.bowl5 {
   display: flex;
   background-color: #2db0ba;
   width: 10px;
   height: 10px;
-}
-.bowl1 {
   animation: bounce 1s infinite;
 }
 .bowl2 {
-  animation: bounce 1s infinite;
   animation-delay: 0.1s;
 }
 .bowl3 {
-  animation: bounce 1s infinite;
   animation-delay: 0.2s;
+}
+.bowl4 {
+  animation-delay: 0.3s;
+}
+.bowl5 {
+  animation-delay: 0.4s;
 }
 @keyframes bounce {
   0% {

@@ -1,8 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 const Filter = () => {
-  const [data, setData] = useState();
-  const newTabfiltered = [];
+  // const [data, setData] = useState();
+  // const newTabfiltered = [];
 
   return (
     <div className="filter-offers">
