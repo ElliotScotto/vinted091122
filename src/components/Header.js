@@ -4,7 +4,16 @@ import magnifyingGlassForSearch from "../assets/images/magnifyingGlassForSearch.
 import Filter from "./Filter";
 //
 //
-const Header = ({ search, setSearch, userToken, handleToken }) => {
+const Header = ({
+  search,
+  setSearch,
+  PriceAsc,
+  setPriceAsc,
+  PriceDesc,
+  setPriceDesc,
+  userToken,
+  handleToken,
+}) => {
   return (
     <header>
       <div className="header">
@@ -35,7 +44,14 @@ const Header = ({ search, setSearch, userToken, handleToken }) => {
             </div>
           </div>
           <div className="header-filter">
-            <Filter />
+            <Filter
+              search={search}
+              setSearch={setSearch}
+              PriceAsc={PriceAsc}
+              setPriceAsc={setPriceAsc}
+              PriceDesc={PriceDesc}
+              setPriceDesc={setPriceDesc}
+            />
           </div>
         </div>
         <div className="buttons-header">

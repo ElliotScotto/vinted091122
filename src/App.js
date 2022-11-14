@@ -19,9 +19,10 @@ import Header from "./components/Header";
 
 function App() {
   const [data, setData] = useState();
-  const [search, setSearch] = useState("");
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
-
+  const [search, setSearch] = useState("");
+  const [PriceAsc, setPriceAsc] = useState(false);
+  const [PriceDesc, setPriceDesc] = useState(false);
   // Cette fonction permet de stocker le token dans le state et dans les cookies OU supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
     if (token) {
@@ -44,6 +45,10 @@ function App() {
                 setSearch={setSearch}
                 handleToken={handleToken}
                 userToken={userToken}
+                PriceAsc={PriceAsc}
+                PriceDesc={PriceDesc}
+                setPriceAsc={setPriceAsc}
+                setPriceDesc={setPriceDesc}
               />
             </li>
           </ul>

@@ -118,8 +118,7 @@ header {
   text-decoration: none;
 }
 .connexion-Btn,
-.inscription-Btn,
-.disconnexion-Btn {
+.inscription-Btn {
   padding: 15px;
   height: 30px;
   color: #2db0ba;
@@ -129,6 +128,17 @@ header {
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+.disconnexion-Btn {
+  padding: 15px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: #c2185a;
 }
 .sell-Btn {
   padding: 15px;
