@@ -6,6 +6,7 @@
   font-family: Roboto;
   text-rendering: optimizeLegibility;
 }
+
 /*
 /* HEADER */
 header {
@@ -77,6 +78,7 @@ header {
 .header-filter {
   /* border: solid 1px blue; */
 }
+
 /*
 /* FILTER */
 .filter-offers {
@@ -128,12 +130,14 @@ header {
   cursor: pointer;
 }
 .sell-Btn {
+  padding: 15px;
   height: 30px;
-  border: none;
   color: white;
+  border: none;
+
   background-color: #2db0ba;
   border-radius: 5px;
-  padding: 15px;
+
   margin-left: 30px;
   margin-right: auto;
   display: flex;
