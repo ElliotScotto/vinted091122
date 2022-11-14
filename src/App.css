@@ -499,7 +499,7 @@ header {
 /* PAGE PUBLISH */
 .background-publish-container {
   margin: 0 auto;
-  height: 85%;
+  height: 1000px;
   width: 100%;
   background-color: #ebedee;
   display: flex;
@@ -509,14 +509,13 @@ header {
 }
 .publish-title {
   width: 1300px;
-  margin: 30px auto 0px;
-
+  margin: 30px auto 15px;
   font-size: 18px;
 }
 .publish-container1 {
   box-sizing: border-box;
   width: 1300px;
-  height: 200px;
+  height: 300px;
   margin-top: 60px auto;
   display: flex;
   justify-content: center;
@@ -565,4 +564,33 @@ header {
   border: none;
   width: 100%;
   opacity: calc(50%);
+}
+.form1 {
+  display: flex;
+}
+.publish-result-data-image {
+  margin: 20px;
+  height: 120px;
+  width: 90px;
+  border-radius: 3px;
+  border: solid 1px lightgray;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-submit-PublishOffer {
+  border: none;
+  display: flex;
+  margin: 50px 75% 20px;
+  width: 200px;
+  padding: 5px;
+  height: 35px;
+  color: white;
+  border-radius: 5px;
+  background-color: #2db0ba;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
 }
