@@ -41,6 +41,9 @@ header {
   flex-direction: column;
   gap: 10px;
 }
+.searchbar-and-filter input:focus {
+  outline: none;
+}
 .searchbar-style {
   background-color: #f5f6f7;
   border-radius: 5px;
@@ -88,6 +91,10 @@ header {
   display: flex;
   align-items: center;
   font-size: 14px;
+}
+.filter-offers ::placeholder {
+  font-size: 14px;
+  opacity: calc(60%);
 }
 .PriceFilter-AToZ {
   padding-left: 5px;
@@ -239,7 +246,7 @@ header {
   border-radius: 50%;
 }
 .home-offer-username {
-  color: lightgray;
+  color: #938d8d;
   font-size: 14px;
 }
 .home-offers-img {
@@ -252,12 +259,12 @@ header {
   padding: 2px;
 }
 .home-offer-size {
-  color: lightgray;
+  color: #938d8d;
   font-size: 14px;
   padding: 2px;
 }
 .home-offer-brand {
-  color: lightgray;
+  color: #938d8d;
   font-size: 14px;
   padding: 2px;
 }
@@ -369,7 +376,7 @@ header {
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  border: solid 1px #2db0ba;
+  /* border: solid 1px #2db0ba; */
   border-radius: 5px;
   margin-top: 50px;
   align-items: center;
@@ -386,6 +393,11 @@ header {
 .inscription-form input {
   width: 300px;
   height: 30px;
+  border: none;
+  border-bottom: solid 1px lightgray;
+}
+.inscription-form input:focus {
+  outline: none;
 }
 .inscription-form ::placeholder {
   font-size: 16px;
@@ -398,13 +410,18 @@ header {
   font-size: 16px;
   display: flex;
   justify-content: center;
-  border: solid 1px blue;
 }
 .user-newsletter {
-  display: flex;
   align-items: center;
 }
-
+.signup-checkbox {
+  height: 15px;
+  width: 15px;
+}
+.signup-newsletter-text {
+  display: flex;
+  width: 270px;
+}
 .conditions-form {
   margin: 0 auto;
   width: 300px;
@@ -418,20 +435,21 @@ header {
   display: flex;
   margin: 0 auto;
   width: 300px;
-  padding: 15px;
+  padding: 5px;
   height: 30px;
   color: white;
   border-radius: 5px;
   background-color: #2db0ba;
   cursor: pointer;
   justify-content: center;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .already-signed {
   margin-top: 10px;
   color: #2db0ba;
   font-size: 16px;
+  justify-content: center;
 }
 .link-inscription {
   text-decoration: none;
@@ -499,7 +517,7 @@ header {
 /* PAGE PUBLISH */
 .background-publish-container {
   margin: 0 auto;
-  height: 1000px;
+  height: 1150px;
   width: 100%;
   background-color: #ebedee;
   display: flex;
@@ -507,14 +525,17 @@ header {
   align-items: center;
   gap: 15px;
 }
+.background-publish-container input:focus {
+  outline: none;
+}
 .publish-title {
-  width: 1300px;
+  width: 1100px;
   margin: 30px auto 15px;
   font-size: 18px;
 }
 .publish-container1 {
   box-sizing: border-box;
-  width: 1300px;
+  width: 1100px;
   height: 300px;
   margin-top: 60px auto;
   display: flex;
@@ -523,7 +544,7 @@ header {
   border: solid 1px lightgray;
   border-radius: 3px;
   background-color: white;
-  padding: 5px;
+  padding: 10px;
 }
 .publish-container1-inner-border {
   border: solid 1px lightgray;
@@ -538,14 +559,15 @@ header {
 .publish-container2,
 .publish-container3,
 .publish-container4 {
-  width: 1300px;
-  margin-top: 60px auto;
+  width: 1100px;
+  margin: 60px auto;
   display: flex;
   justify-content: left;
   border: solid 1px lightgray;
   border-radius: 3px;
   background-color: white;
   flex-direction: column;
+  padding-bottom: 10px;
 }
 .publish-Title-And-Value {
   display: flex;
@@ -570,14 +592,32 @@ header {
 }
 .publish-result-data-image {
   margin: 20px;
-  height: 120px;
-  width: 90px;
+  object-fit: contain;
+  height: 100px;
+  width: 100px;
   border-radius: 3px;
-  border: solid 1px lightgray;
   font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.delete-img-upload {
+  visibility: visible;
+  cursor: pointer;
+}
+.price-type {
+  display: flex;
+}
+.exchange {
+  display: flex;
+  align-items: center;
+}
+.exchange input {
+  height: 20px;
+  width: 20px;
+}
+.exchange span {
+  color: grey;
 }
 .button-submit-PublishOffer {
   border: none;

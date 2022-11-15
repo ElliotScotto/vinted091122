@@ -7,10 +7,12 @@ import Filter from "./Filter";
 const Header = ({
   search,
   setSearch,
-  PriceAsc,
-  setPriceAsc,
-  PriceDesc,
-  setPriceDesc,
+  sort,
+  setSort,
+  priceMin,
+  setPriceMin,
+  priceMax,
+  setPriceMax,
   userToken,
   handleToken,
 }) => {
@@ -47,10 +49,12 @@ const Header = ({
             <Filter
               search={search}
               setSearch={setSearch}
-              PriceAsc={PriceAsc}
-              setPriceAsc={setPriceAsc}
-              PriceDesc={PriceDesc}
-              setPriceDesc={setPriceDesc}
+              sort={sort}
+              setSort={setSort}
+              priceMin={priceMin}
+              setPriceMin={setPriceMin}
+              priceMax={priceMax}
+              setPriceMax={setPriceMax}
             />
           </div>
         </div>

@@ -2,28 +2,36 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
-
 import Hero from "../components/Hero";
 
-const Home = ({ search }) => {
+const Home = ({ search, sort, priceMin, priceMax }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
-        );
-        console.log("REPONSE DU SERVEUR pour la page HOME ici ", response.data);
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error.response); // contrairement au error.message d'express
-      }
-    };
-    fetchData();
-  }, [search]);
+  useEffect(
+    () => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            `${process.env.REACT_APP_VINTED_REACTEUR_URL}/offers?title=${search}&sort=${sort}&PriceMax=${priceMax}&PriceMin=${priceMin}`
+          );
+          console.log(
+            "REPONSE DU SERVEUR pour la page HOME ici ",
+            response.data
+          );
+          setData(response.data);
+          setIsLoading(false);
+        } catch (error) {
+          console.log(error.response); // contrairement au error.message d'express
+        }
+      };
+      fetchData();
+    },
+    [search],
+    [sort],
+    [priceMin],
+    [priceMax]
+  );
 
   return isLoading ? (
     <Loading />

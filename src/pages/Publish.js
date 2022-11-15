@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 const Publish = ({ userToken }) => {
   const [file, setFile] = useState({});
+  const [preview, setPreview] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -10,27 +11,30 @@ const Publish = ({ userToken }) => {
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
+  const [exchange, setExchange] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("picture", file);
-    formData.append("product_name", title);
-    formData.append("product_description", description);
-    formData.append("product_price", price);
-    formData.append("MARQUE", brand);
-    formData.append("TAILLE", size);
-    formData.append("ETAT", condition);
-    formData.append("COULEUR", color);
-    formData.append("EMPLACEMENT", city);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("brand", brand);
+    formData.append("size", size);
+    formData.append("condition", condition);
+    formData.append("color", color);
+    formData.append("city", city);
     try {
+      console.log(userToken);
+
       const response = await axios.post(
-        "http://localhost:3000/upload",
+        `${process.env.REACT_APP_VINTED_REACTEUR_URL}/offer/publish`,
         formData,
         {
           headers: {
-            Authorization: "Bearer " + userToken,
-            "Content-Type": "multipart/form-data",
+            authorization: `Bearer ${userToken}`,
+            // "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -50,10 +54,22 @@ const Publish = ({ userToken }) => {
               type="file"
               onChange={(event) => {
                 setFile(event.target.files[0]);
+                setPreview(URL.createObjectURL(event.target.files[0]));
               }}
             />
             {/* <input type="submit" value="Ajoute une photo" /> */}
-            {/* <div className="publish-result-data-image">{}</div> */}
+            <div className="publish-result-data-image">
+              <img src={preview} alt="preview" width={100} height={100} />
+            </div>
+            <div
+              className="delete-img-upload"
+              onClick={() => {
+                setPreview("");
+                // setFile("");
+              }}
+            >
+              X
+            </div>
           </div>
         </div>
         <div className="publish-container2">
@@ -63,29 +79,29 @@ const Publish = ({ userToken }) => {
               <input
                 type="text"
                 placeholder="ex: Chemise Sézanne verte"
-                onChange={(event) => {
-                  setTitle(event.target.value);
-                }}
                 value={title}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setTitle(value);
+                }}
               />
             </div>
           </div>
-
           <div className="publish-Title-And-Value">
             <div className="publish-category">Décris ton article</div>
             <div className="publish-category-value">
               <input
                 type="text"
                 placeholder="ex: porté quelquefois, taille correctement"
-                onChange={(event) => {
-                  setDescription(event.target.value);
-                }}
                 value={description}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setDescription(value);
+                }}
               />
             </div>
           </div>
         </div>
-
         <div className="publish-container3">
           <div className="publish-Title-And-Value">
             <div className="publish-category">Marque</div>
@@ -93,83 +109,96 @@ const Publish = ({ userToken }) => {
               <input
                 type="text"
                 placeholder="ex: Zara"
-                onChange={(event) => {
-                  setBrand(event.target.value);
-                }}
                 value={brand}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setBrand(value);
+                }}
               />
             </div>
           </div>
-
           <div className="publish-Title-And-Value">
             <div className="publish-category">Taille</div>
             <div className="publish-category-value">
               <input
                 type="text"
                 placeholder="ex: L/40/12"
-                onChange={(event) => {
-                  setSize(event.target.value);
-                }}
                 value={size}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setSize(value);
+                }}
               />
             </div>
           </div>
-
           <div className="publish-Title-And-Value">
             <div className="publish-category">Couleur</div>
             <div className="publish-category-value">
               <input
                 type="text"
                 placeholder="ex: Fushia"
-                onChange={(event) => {
-                  setColor(event.target.value);
-                }}
                 value={color}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setColor(value);
+                }}
               />
             </div>
           </div>
-
           <div className="publish-Title-And-Value">
             <div className="publish-category">Etat</div>
             <div className="publish-category-value">
               <input
                 type="text"
                 placeholder="Neuf avec étiquette"
-                onChange={(event) => {
-                  setCondition(event.target.value);
-                }}
                 value={condition}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setCondition(value);
+                }}
               />
             </div>
           </div>
-
           <div className="publish-Title-And-Value">
             <div className="publish-category">Lieu</div>
             <div className="publish-category-value">
               <input
                 type="text"
                 placeholder="ex: Paris"
-                onChange={(event) => {
-                  setCity(event.target.value);
-                }}
                 value={city}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setCity(value);
+                }}
               />
             </div>
           </div>
         </div>
-
         <div className="publish-container4">
           <div className="publish-Title-And-Value">
             <div className="publish-category">Prix</div>
-            <div className="publish-category-value">
-              <input
-                type="text"
-                placeholder="0,00 €"
-                onChange={(event) => {
-                  setPrice(event.target.value);
-                }}
-                value={price}
-              />
+
+            <div className="publish-category-value price">
+              <div className="price-type">
+                <input
+                  type="text"
+                  placeholder="0,00 €"
+                  value={price}
+                  onChange={(event) => {
+                    const value = event.target.value;
+                    setPrice(value);
+                  }}
+                />
+              </div>
+              <div className="exchange">
+                <input
+                  type="checkbox"
+                  name="exchange"
+                  value={exchange}
+                  onChange={() => setExchange(!exchange)}
+                />
+                <span>Je suis intéressé(e) par les échanges</span>
+              </div>
             </div>
           </div>
         </div>

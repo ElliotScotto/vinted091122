@@ -21,8 +21,10 @@ function App() {
   const [data, setData] = useState();
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const [search, setSearch] = useState("");
-  const [PriceAsc, setPriceAsc] = useState(false);
-  const [PriceDesc, setPriceDesc] = useState(false);
+  const [priceMin, setPriceMin] = useState("");
+  const [priceMax, setPriceMax] = useState("");
+  const [sort, setSort] = useState(false);
+
   // Cette fonction permet de stocker le token dans le state et dans les cookies OU supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
     if (token) {
@@ -45,10 +47,12 @@ function App() {
                 setSearch={setSearch}
                 handleToken={handleToken}
                 userToken={userToken}
-                PriceAsc={PriceAsc}
-                PriceDesc={PriceDesc}
-                setPriceAsc={setPriceAsc}
-                setPriceDesc={setPriceDesc}
+                priceMin={priceMin}
+                priceMax={priceMax}
+                setPriceMin={setPriceMin}
+                setPriceMax={setPriceMax}
+                sort={sort}
+                setSort={setSort}
               />
             </li>
           </ul>
@@ -56,7 +60,16 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home data={data} setData={setData} search={search} />}
+            element={
+              <Home
+                data={data}
+                setData={setData}
+                search={search}
+                sort={sort}
+                priceMin={priceMin}
+                priceMax={priceMax}
+              />
+            }
           />
           <Route path="/offer/:id" element={<Offer />} />
           <Route

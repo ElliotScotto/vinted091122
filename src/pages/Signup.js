@@ -22,7 +22,7 @@ const Signup = ({ handleToken }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        `${process.env.REACT_APP_VINTED_REACTEUR_URL}/user/signup`,
         // "https://site--backend-vinted--cpx4vl465khg.code.run/users/signup",
         {
           email: email,
@@ -84,6 +84,7 @@ const Signup = ({ handleToken }) => {
         <div className="user-newsletter">
           <div>
             <input
+              className="signup-checkbox"
               type="checkbox"
               checked={newsletter}
               onChange={() => {
@@ -91,7 +92,9 @@ const Signup = ({ handleToken }) => {
               }}
             />
           </div>
-          <div>S'inscrire à notre newsletter</div>
+          <div className="signup-newsletter-text">
+            S'inscrire à notre newsletter
+          </div>
         </div>
 
         <p className="conditions-form">

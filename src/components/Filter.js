@@ -6,22 +6,26 @@ import axios from "axios";
 const Filter = ({
   search,
   setSearch,
-  PriceAsc,
-  setPriceAsc,
-  PriceDesc,
-  setPriceDesc,
+  sort,
+  setSort,
+  priceMin,
+  setPriceMin,
+  priceMax,
+  setPriceMax,
 }) => {
   const [data, setData] = useState();
-  // const newTabfiltered = []
-  //
+
+  const handleSort = async (event) => {
+    event.preventDefault();
+  };
 
   //
   useEffect(() => {
-    const fetchData = async (event) => {
-      event.preventDefault();
+    const fetchData = async () => {
+      // event.preventDefault();
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${search}`
+          `${process.env.REACT_APP_VINTED_REACTEUR_URL}/offers?title=${search}&sort=${sort}&priceMax=${priceMax}&priceMin=${priceMin}`
         );
         // console.log(
         //   "REPONSE DU SERVEUR pour la page HOME with Filter ici ",
@@ -34,38 +38,42 @@ const Filter = ({
       }
     };
     fetchData();
-  }, [search]);
+  }, [search, sort, priceMin, priceMax]);
   //
 
   return (
-    <div className="filter-offers">
-      <div className="PriceFilter-AToZ">
-        Trier par prix
-        <input
-          type="checkbox"
-          checked={PriceAsc}
-          onChange={() => {
-            setPriceAsc(!PriceAsc);
-          }}
-        />
-        <input
-          type="checkbox"
-          checked={PriceDesc}
-          onChange={() => {
-            setPriceDesc(!PriceDesc);
-          }}
-        />
+    <form onSubmit={handleSort}>
+      <div className="filter-offers">
+        <div className="PriceFilter-AToZ">
+          Trier par prix
+          <input
+            type="checkbox"
+            checked={sort}
+            onChange={() => {
+              setSort(!sort);
+            }}
+            name="price"
+          />
+          <div className="PriceFilter-Reduce">
+            Prix entre :
+            <input
+              type="number"
+              placeholder="Prix Minimmum"
+              onChange={(event) => {
+                setPriceMin(event.target.value);
+              }}
+            />
+            <input
+              type="number"
+              placeholder="Prix Maximum"
+              onChange={(event) => {
+                setPriceMax(event.target.value);
+              }}
+            />
+          </div>
+        </div>
       </div>
-      <div className="PriceFilter-Reduce">
-        Prix entre :
-        <input
-          type="number"
-          onChange={(event) => {
-            setSearch(event.target.value);
-          }}
-        />
-      </div>
-    </div>
+    </form>
   );
 };
 export default Filter;
