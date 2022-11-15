@@ -27,6 +27,7 @@ header {
 }
 
 .logo-style {
+  margin-left: 20px;
   height: 45px;
   width: 120px;
   cursor: pointer;
@@ -35,8 +36,8 @@ header {
 /*
 /* HEADER SEARCH */
 .searchbar-and-filter {
-  margin-left: 10px;
-  width: 600px;
+  margin-left: 20px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -72,11 +73,12 @@ header {
   height: 35px;
   background-color: #f5f6f7;
   padding-left: 10px;
-  width: 100%;
+  width: 200px;
   font-size: 16px;
   border-radius: 5px;
   font-family: Roboto;
   text-rendering: optimizeLegibility;
+  margin-right: 20px;
 }
 
 .header-filter {
@@ -92,6 +94,11 @@ header {
   align-items: center;
   font-size: 14px;
 }
+.PriceFilter-Reduce input {
+  width: 80px;
+  margin-right: 10px;
+}
+
 .filter-offers p {
   margin-right: 5px;
 }
@@ -106,6 +113,7 @@ header {
   /* border: solid 1px goldenrod; */
   align-items: center;
   gap: 10px;
+  min-width: fit-content;
 }
 
 .filter-Btns {
@@ -160,6 +168,7 @@ header {
   display: flex;
   /* border: solid 1px green; */
   align-items: center;
+  min-width: fit-content;
 }
 /*
 /* HEADER USER BUTTON */
@@ -177,6 +186,7 @@ header {
 .inscription-Btn {
   padding: 15px;
   height: 30px;
+  width: 120px;
   color: #2db0ba;
   border: solid 1px #2db0ba;
   border-radius: 5px;
@@ -199,6 +209,7 @@ header {
 .sell-Btn {
   padding: 15px;
   height: 30px;
+  width: 140px;
   color: white;
   border: none;
   background-color: #2db0ba;
@@ -793,4 +804,26 @@ header {
     rgba(0, 0, 0, 0.0784314) 0px 1px 3px;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .header .sell-Btn {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .filter-offers input {
+    display: none;
+  }
+  .filter-offers {
+    display: none;
+  }
+}
+
+@media (max-width: 968px) {
+  .inscription-Btn,
+  .connexion-Btn {
+    display: none;
+  }
 }
