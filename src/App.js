@@ -21,9 +21,9 @@ function App() {
   const [data, setData] = useState();
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const [search, setSearch] = useState("");
-  const [priceMin, setPriceMin] = useState("");
-  const [priceMax, setPriceMax] = useState("");
-  const [sort, setSort] = useState(false);
+  const [priceMin, setPriceMin] = useState(0);
+  const [priceMax, setPriceMax] = useState(500);
+  const [sort, setSort] = useState("");
 
   // Cette fonction permet de stocker le token dans le state et dans les cookies OU supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
@@ -47,12 +47,12 @@ function App() {
                 setSearch={setSearch}
                 handleToken={handleToken}
                 userToken={userToken}
+                sort={sort}
                 priceMin={priceMin}
                 priceMax={priceMax}
+                setSort={setSort}
                 setPriceMin={setPriceMin}
                 setPriceMax={setPriceMax}
-                sort={sort}
-                setSort={setSort}
               />
             </li>
           </ul>
@@ -66,8 +66,11 @@ function App() {
                 setData={setData}
                 search={search}
                 sort={sort}
+                setSort={setSort}
                 priceMin={priceMin}
+                setPriceMin={setPriceMin}
                 priceMax={priceMax}
+                setPriceMax={setPriceMax}
               />
             }
           />

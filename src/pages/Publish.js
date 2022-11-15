@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 const Publish = ({ userToken }) => {
   const [file, setFile] = useState({});
   const [preview, setPreview] = useState("");
@@ -10,7 +11,7 @@ const Publish = ({ userToken }) => {
   const [color, setColor] = useState("");
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
   const [exchange, setExchange] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -34,7 +35,7 @@ const Publish = ({ userToken }) => {
         {
           headers: {
             authorization: `Bearer ${userToken}`,
-            // "Content-Type": "multipart/form-data",
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -44,7 +45,7 @@ const Publish = ({ userToken }) => {
     }
   };
 
-  return (
+  return userToken ? (
     <div className="background-publish-container">
       <form onSubmit={handleSubmit}>
         <div className="publish-title">Vends ton article</div>
@@ -90,8 +91,10 @@ const Publish = ({ userToken }) => {
           <div className="publish-Title-And-Value">
             <div className="publish-category">Décris ton article</div>
             <div className="publish-category-value">
-              <input
+              <textarea
                 type="text"
+                cols="65"
+                rows="2"
                 placeholder="ex: porté quelquefois, taille correctement"
                 value={description}
                 onChange={(event) => {
@@ -182,7 +185,7 @@ const Publish = ({ userToken }) => {
               <div className="price-type">
                 <input
                   type="text"
-                  placeholder="0,00 €"
+                  placeholder=" €"
                   value={price}
                   onChange={(event) => {
                     const value = event.target.value;
@@ -210,6 +213,8 @@ const Publish = ({ userToken }) => {
         />
       </form>
     </div>
+  ) : (
+    <Navigate to="/login" />
   );
 };
 

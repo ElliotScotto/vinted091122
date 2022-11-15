@@ -1,8 +1,3 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-//
-
-//
 const Filter = ({
   search,
   setSearch,
@@ -13,67 +8,51 @@ const Filter = ({
   priceMax,
   setPriceMax,
 }) => {
-  const [data, setData] = useState();
-
-  const handleSort = async (event) => {
-    event.preventDefault();
-  };
-
-  //
-  useEffect(() => {
-    const fetchData = async () => {
-      // event.preventDefault();
-      try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_VINTED_REACTEUR_URL}/offers?title=${search}&sort=${sort}&priceMax=${priceMax}&priceMin=${priceMin}`
-        );
-        // console.log(
-        //   "REPONSE DU SERVEUR pour la page HOME with Filter ici ",
-        //   response.data
-        // );
-        setData(response.data);
-        // setIsLoading(false);
-      } catch (error) {
-        console.log(error.response); // contrairement au error.message d'express
-      }
-    };
-    fetchData();
-  }, [search, sort, priceMin, priceMax]);
-  //
-
   return (
-    <form onSubmit={handleSort}>
-      <div className="filter-offers">
-        <div className="PriceFilter-AToZ">
-          Trier par prix
-          <input
-            type="checkbox"
-            checked={sort}
-            onChange={() => {
-              setSort(!sort);
-            }}
-            name="price"
-          />
-          <div className="PriceFilter-Reduce">
-            Prix entre :
+    <div className="filter-offers">
+      <div className="PriceFilter-AToZ">
+        <p>Trier par prix : </p>
+        <div className="filter-Btns">
+          <div className="filter-asc">
+            <div className="arrow-icon">⇡</div>
             <input
-              type="number"
-              placeholder="Prix Minimmum"
-              onChange={(event) => {
-                setPriceMin(event.target.value);
+              className="filter-asc-Btn"
+              name="price-asc"
+              onClick={() => {
+                setSort("price-asc");
               }}
             />
+          </div>
+          <div className="filter-desc">
+            <div className="arrow-icon">⇣</div>
             <input
-              type="number"
-              placeholder="Prix Maximum"
-              onChange={(event) => {
-                setPriceMax(event.target.value);
+              className="filter-desc-Btn"
+              name="price-desc"
+              onClick={() => {
+                setSort("price-desc");
               }}
             />
           </div>
         </div>
       </div>
-    </form>
+      <div className="PriceFilter-Reduce">
+        <p>Prix entre : </p>
+        <input
+          type="number"
+          placeholder="Prix Minimmum"
+          onChange={(event) => {
+            setPriceMin(event.target.value);
+          }}
+        />
+        <input
+          type="number"
+          placeholder="Prix Maximum"
+          onChange={(event) => {
+            setPriceMax(event.target.value);
+          }}
+        />
+      </div>
+    </div>
   );
 };
 export default Filter;

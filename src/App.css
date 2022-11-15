@@ -92,6 +92,9 @@ header {
   align-items: center;
   font-size: 14px;
 }
+.filter-offers p {
+  margin-right: 5px;
+}
 .filter-offers ::placeholder {
   font-size: 14px;
   opacity: calc(60%);
@@ -99,17 +102,63 @@ header {
 .PriceFilter-AToZ {
   padding-left: 5px;
   height: 100%;
-  flex: 1;
   display: flex;
-  border: solid 1px goldenrod;
+  /* border: solid 1px goldenrod; */
   align-items: center;
+  gap: 10px;
+}
+
+.filter-Btns {
+  display: flex;
+  gap: 20px;
+  border: solid 1px #2db0ba;
+  justify-content: center;
+  align-items: center;
+  height: 17px;
+  margin-right: 5px;
+  background-color: #2db0ba;
+}
+.filter-asc {
+  position: relative;
+}
+.filter-asc:hover {
+  background-color: #2db0ba;
+  color: white;
+}
+.filter-desc {
+  position: relative;
+}
+.filter-desc:hover {
+  background-color: #2db0ba;
+  color: white;
+}
+.arrow-icon {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  cursor: pointer;
+  color: #2db0ba;
+}
+.filter-asc-Btn {
+  background-color: white;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+  border: none;
+}
+.filter-desc-Btn {
+  background-color: white;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+  border: none;
 }
 .PriceFilter-Reduce {
   padding-left: 5px;
+  padding-right: 5px;
   height: 100%;
-  flex: 2;
   display: flex;
-  border: solid 1px green;
+  /* border: solid 1px green; */
   align-items: center;
 }
 /*
@@ -585,8 +634,14 @@ header {
 .publish-category-value input {
   border: none;
   width: 100%;
-  opacity: calc(50%);
 }
+.publish-category-value textarea {
+  resize: none;
+  outline: none;
+  border: none;
+  display: flex;
+}
+
 .form1 {
   display: flex;
 }
