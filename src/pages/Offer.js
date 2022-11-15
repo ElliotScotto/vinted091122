@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 const Offer = () => {
   const [data, setData] = useState();
@@ -75,13 +76,15 @@ const Offer = () => {
                 <p className="offer-username">{data.owner.account.username}</p>
               </div>
             </div>
-            <div className="button-buy">
-              <input
-                type="submit"
-                className="button-submit-buy"
-                value="Acheter"
-              />
-            </div>
+            <Link to="/pay" className="link-inscription btn-with-link">
+              <div className="button-buy">
+                <input
+                  type="submit"
+                  className="button-submit-buy"
+                  value="Acheter"
+                />
+              </div>
+            </Link>
           </div>
         </div>
       </div>

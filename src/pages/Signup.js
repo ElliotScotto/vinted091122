@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 //import packages
 import axios from "axios";
-// import Cookies from "js-cookie";
-//import components
-// import Loading from "../components/Loading";
 
 const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");

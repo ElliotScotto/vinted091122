@@ -1,7 +1,9 @@
 import "./App.css";
+
 //import des packages
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
+
 //
 //import des fonctions react
 import { useState } from "react";
@@ -12,6 +14,7 @@ import Offer from "./pages/Offer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 
 //import des components
 import Header from "./components/Header";
@@ -84,6 +87,16 @@ function App() {
             path="/offer/publish"
             element={
               <Publish handleToken={handleToken} userToken={userToken} />
+            }
+          />
+          <Route
+            path="/pay"
+            element={
+              <Payment
+                handleToken={handleToken}
+                userToken={userToken}
+                data={data}
+              />
             }
           />
         </Routes>

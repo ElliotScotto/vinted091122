@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 
 import axios from "axios";
 
-const CheckoutForm = ({ productName, totalPrice }) => {
+const CheckoutForm = ({
+  userToken,
+  product_name,
+  product_price,
+  product_description,
+  data,
+}) => {
   const [isPaid, setIsPaid] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-
-  // console.log(totalPrice);
 
   const handleSubmit = async (event) => {
     try {
@@ -16,17 +20,17 @@ const CheckoutForm = ({ productName, totalPrice }) => {
       // On récupère ici les données bancaires que l'utilisateur rentre
       const cardElement = elements.getElement(CardElement);
       const stripeResponse = await stripe.createToken(cardElement, {
-        name: "L'id de l'acheteur",
+        name: userToken,
       });
 
-      // console.log(stripeResponse);
-
       const response = await axios.post(
-        `${process.env.REACT_APP_VINTED_REACTEUR_URL}/payment`,
+        `${process.env.REACT_APP_VINTED_REACTEUR_URL}/pay`,
         {
-          amount: totalPrice,
-          title: productName,
-          token: stripeResponse.token.id,
+          amount: product_price,
+          currency: "eur",
+          title: product_name,
+          description: product_description,
+          token: stripeResponse.userToken.id,
         }
       );
 
@@ -43,12 +47,23 @@ const CheckoutForm = ({ productName, totalPrice }) => {
   return isPaid ? (
     <p>Merci pour votre achat.</p>
   ) : (
-    <form onSubmit={handleSubmit}>
-      <CardElement />
-      <button type="submit" disabled={!stripe}>
-        Pay
-      </button>
-    </form>
+    <div className="payment-container">
+      <div className="payment-card">
+        <div className="details-pay">
+          <span className="bold"> {product_name}</span>Montant total :{" "}
+          <span className="bold">{product_price} €</span> (frais de protection
+          et frais de port inclus).
+          <div className="form-pay">
+            <form onSubmit={handleSubmit}>
+              <CardElement data={data} userToken={userToken} />
+              <button type="submit" disabled={!stripe}>
+                Pay
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
